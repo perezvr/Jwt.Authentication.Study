@@ -13,7 +13,6 @@ namespace Jwt.Authentication.Study.Api.Middlewares
 
             if (user == null)
             {
-                //Em caso do usuário não auntenticado
                 context.Result =
                     new JsonResult(new { message = "Unauthorized" }) { StatusCode = StatusCodes.Status401Unauthorized };
             }

@@ -6,12 +6,12 @@ namespace Jwt.Authentication.Study.Api.Domain.Entities
     {
         public int Id { get; set; }
         public string FirstName { get; private set; }
-        public string LastName { get; private set; } 
-        public string Username { get; private set; } 
+        public string LastName { get; private set; }
+        public string Username { get; private set; }
 
         [JsonIgnore]
-        public string Password { get; private set; } 
-        
+        public string Password { get; private set; }
+
         public User(int id, string firstName, string lastName, string username, string password)
         {
             Id = id;
