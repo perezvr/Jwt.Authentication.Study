@@ -12,10 +12,10 @@ namespace Jwt.Authentication.Study.Api.Middlewares
         private readonly RequestDelegate _next;
         private readonly JwtConfiguration _jwtConfiguration;
 
-        public JwtMiddleware(RequestDelegate next, IOptions<JwtConfiguration> jwtSettings)
+        public JwtMiddleware(RequestDelegate next, IOptions<JwtConfiguration> jwtConfiguration)
         {
             _next = next;
-            _jwtConfiguration = jwtSettings.Value;
+            _jwtConfiguration = jwtConfiguration.Value;
         }
 
         public async Task Invoke(HttpContext context, IUserService userService)

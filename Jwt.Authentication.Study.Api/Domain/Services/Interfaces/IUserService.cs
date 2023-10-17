@@ -5,8 +5,7 @@ namespace Jwt.Authentication.Study.Api.Domain.Services.Interfaces
 {
     public interface IUserService
     {
-        AuthenticationResponse Authenticate(string userName, string password);
-        IEnumerable<User> GetAll();
+        User? GetByUsenNameAndPassword(string userName, string password);
         User GetById(int id);
     }
 }

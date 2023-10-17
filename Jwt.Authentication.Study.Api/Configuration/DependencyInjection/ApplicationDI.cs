@@ -5,6 +5,7 @@
         internal static void RegisterApplication(this IServiceCollection services, IConfiguration configuration)
         {
             services.RegisterConfiguration(configuration);
+            services.RegisterBusiness();
 
 
         }
