@@ -1,5 +1,4 @@
-﻿using Jwt.Authentication.Study.Api.Business.Abstractions;
-using Jwt.Authentication.Study.Api.Domain.Entities;
+﻿using Jwt.Authentication.Study.Api.Domain.Entities;
 using Jwt.Authentication.Study.Api.Domain.Services.Interfaces;
 
 namespace Jwt.Authentication.Study.Api.Domain.Services
@@ -22,9 +21,10 @@ namespace Jwt.Authentication.Study.Api.Domain.Services
             return user;
         }
 
-        public User GetById(int id)
+        public User? GetById(int id)
         {
-            throw new NotImplementedException();
+            var user = _users.FirstOrDefault(x => x.Id == id);
+            return user;
         }
     }
 }

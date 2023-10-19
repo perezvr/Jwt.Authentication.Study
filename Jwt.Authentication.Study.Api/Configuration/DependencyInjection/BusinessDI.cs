@@ -10,6 +10,7 @@ namespace Jwt.Authentication.Study.Api.Configuration.DependencyInjection
         public static void RegisterBusiness(this IServiceCollection services)
         {
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IAuthenticationService, AuthenticationService>();
         }
     }

@@ -14,6 +14,7 @@ namespace Jwt.Authentication.Study.Api.Controllers
             _authenticationService = authenticationService;
         }
 
+        [HttpPost("login")]
         public IActionResult Login([FromBody] AuthenticationRequest request)
         {
             var response = _authenticationService.Authenticate(request);
