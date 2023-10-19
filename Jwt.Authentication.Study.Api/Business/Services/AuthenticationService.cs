@@ -22,9 +22,13 @@ namespace Jwt.Authentication.Study.Api.Business.Services
             _jwtConfiguration = jwtConfiguration.Value;
         }
 
-        public AuthenticationResponse Authenticate(AuthenticationRequest request)
+        public AuthenticationResponse? Authenticate(AuthenticationRequest request)
         {
             var user = _userService.GetByUsenNameAndPassword(request.Username, request.Password);
+
+            //retornar o erro de outra forma
+            if(user is null)
+                return null;
 
             //todo pensar em uma estratégia para devolver um usuário nao encontrado
             var token = GenerateJwtToken(user);
@@ -46,6 +50,7 @@ namespace Jwt.Authentication.Study.Api.Business.Services
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
                 Audience = _jwtConfiguration.Audience
             };
+
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
             return tokenHandler.WriteToken(token);

@@ -4,6 +4,6 @@ namespace Jwt.Authentication.Study.Api.Business.Services.Interfaces
 {
     public interface IAuthenticationService
     {
-        AuthenticationResponse Authenticate(AuthenticationRequest request);
+        AuthenticationResponse? Authenticate(AuthenticationRequest request);
     }
 }

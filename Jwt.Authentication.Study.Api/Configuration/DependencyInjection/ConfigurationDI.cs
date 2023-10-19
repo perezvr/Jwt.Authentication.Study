@@ -4,6 +4,7 @@
     {
         internal static void RegisterConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
+            //Alterar para fazer validação on start
             services
                 .Configure<JwtConfiguration>(configuration.GetSection(JwtConfiguration.SectionName));
         }
