@@ -11,6 +11,7 @@ namespace Jwt.Authentication.Study.Api.Configuration.DependencyInjection
         {
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IAuditService, AuditService>();
             services.AddTransient<IAuthenticationService, AuthenticationService>();
         }
     }

@@ -5,8 +5,16 @@ namespace Jwt.Authentication.Study.Api.Domain.Services
 {
     public class ProductService : IProductService
     {
+        private readonly IAuditService _auditService;
+
+        public ProductService(IAuditService auditService)
+        {
+            _auditService = auditService;
+        }
+
         public IEnumerable<Product> GetAll()
-            => new List<Product>
+        {
+            var products = new List<Product>
             {
                 new Product(1, "Product 1", 2.12m),
                 new Product(2, "Product 2", 5.59m),
@@ -14,5 +22,10 @@ namespace Jwt.Authentication.Study.Api.Domain.Services
                 new Product(4, "Product 4", 15.88m),
                 new Product(5, "Product 5", 41.54m)
             };
+
+            _auditService.RecordEvent("event");
+
+            return products;
+        }
     }
 }

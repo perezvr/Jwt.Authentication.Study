@@ -7,6 +7,9 @@ builder.Services.AddControllers();
 
 builder.Services.RegisterApplication(builder.Configuration);
 
+//todo comentar pq disso
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
 
 app.UseHttpsRedirection();
