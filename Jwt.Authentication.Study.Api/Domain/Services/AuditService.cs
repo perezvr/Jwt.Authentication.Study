@@ -1,6 +1,5 @@
 ﻿using Jwt.Authentication.Study.Api.Domain.Entities;
 using Jwt.Authentication.Study.Api.Domain.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 
 namespace Jwt.Authentication.Study.Api.Domain.Services
 {
@@ -15,14 +14,11 @@ namespace Jwt.Authentication.Study.Api.Domain.Services
 
         public void RecordEvent(string eventName)
         {
-            if (_httpContext.HttpContext?.Items["User"] is User user)
-            {
-                Console.WriteLine($"event {eventName} executed by user: {user.Id} at {DateTime.UtcNow}");
-            }
-            else
-            {
-                Console.WriteLine($"Unknown user for event {eventName} at {DateTime.UtcNow}");
-            }
+            string record = (_httpContext.HttpContext?.Items["User"] is User user)
+                ? $"event {eventName} executed by user: {user.Id} at {DateTime.UtcNow}"
+                : $"Unknown user for event {eventName} at {DateTime.UtcNow}";
+
+            Console.WriteLine(record);
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Jwt.Authentication.Study.Api.Domain.Entities;
 using Jwt.Authentication.Study.Api.Domain.Services.Interfaces;
+using Jwt.Authentication.Study.Api.Tools.Extensions;
+using System.Reflection;
 
 namespace Jwt.Authentication.Study.Api.Domain.Services
 {
@@ -23,9 +25,11 @@ namespace Jwt.Authentication.Study.Api.Domain.Services
                 new Product(5, "Product 5", 41.54m)
             };
 
-            _auditService.RecordEvent("event");
+            _auditService.RecordEvent(typeof(ProductService).GetFullMethodName(nameof(GetAll)));
 
             return products;
         }
+
+        
     }
 }
