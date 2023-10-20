@@ -5,16 +5,16 @@ namespace Jwt.Authentication.Study.Api.Domain.Services
 {
     public class AuditService : IAuditService
     {
-        private readonly IHttpContextAccessor _httpContext;
+        private readonly HttpContext? _httpContext;
 
-        public AuditService(IHttpContextAccessor httpContext)
+        public AuditService(IHttpContextAccessor httpContextAccessor)
         {
-            _httpContext = httpContext;
+            _httpContext = httpContextAccessor.HttpContext;
         }
 
         public void RecordEvent(string eventName)
         {
-            string record = (_httpContext.HttpContext?.Items["User"] is User user)
+            string record = (_httpContext?.Items["User"] is User user)
                 ? $"event {eventName} executed by user: {user.Id} at {DateTime.UtcNow}"
                 : $"Unknown user for event {eventName} at {DateTime.UtcNow}";
 

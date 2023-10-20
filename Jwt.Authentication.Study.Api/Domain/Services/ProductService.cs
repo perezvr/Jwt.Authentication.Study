@@ -1,7 +1,6 @@
 ﻿using Jwt.Authentication.Study.Api.Domain.Entities;
 using Jwt.Authentication.Study.Api.Domain.Services.Interfaces;
 using Jwt.Authentication.Study.Api.Tools.Extensions;
-using System.Reflection;
 
 namespace Jwt.Authentication.Study.Api.Domain.Services
 {
@@ -29,7 +28,5 @@ namespace Jwt.Authentication.Study.Api.Domain.Services
 
             return products;
         }
-
-        
     }
 }

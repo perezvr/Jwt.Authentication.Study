@@ -20,7 +20,6 @@ namespace Jwt.Authentication.Study.Api.Middlewares
 
         public async Task Invoke(HttpContext context, IUserService userService)
         {
-            //todo verificar se tem como melhorar esse linq
             var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
             if (token != null)

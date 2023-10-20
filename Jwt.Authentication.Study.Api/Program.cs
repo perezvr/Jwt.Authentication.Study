@@ -7,7 +7,7 @@ builder.Services.AddControllers();
 
 builder.Services.RegisterApplication(builder.Configuration);
 
-//todo comentar pq disso
+//This method allows services to get an instance of HttpContext
 builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
